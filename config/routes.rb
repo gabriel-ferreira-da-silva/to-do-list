@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 
   get "/", to: "login#index"
   get "/login", to: "login#login"
+  get "/cadastro", to: "cadastro#index"
 
 end
