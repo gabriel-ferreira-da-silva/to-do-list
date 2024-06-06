@@ -15,4 +15,7 @@ Rails.application.routes.draw do
   get "/cadastrotarefa", to: "cadastrotarefa#index"
   get "/listpage", to: "listpage#index"
 
+
+  get "go_cadastro" => "cadastro#index"
+
 end

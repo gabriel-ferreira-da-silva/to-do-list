@@ -1,16 +1,11 @@
-<div>
-    username
-</div>
-<input>
-<div>
-    password
-</div>
-<input>
 
-<button>
-    login
-</button>
+<h1>TO-DO LIST ! <span class="badge badge-secondary">login</span></h1>
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="email.." aria-label="email" aria-describedby="basic-addon2">
+</div>
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="password.." aria-label="password..." aria-describedby="basic-addon2">
+</div>
 
-<button>
-    cadastro
-</button>
+<%= link_to "login", cadastro_path, class: "btn btn-primary" %>
+<%= link_to "cadastro", cadastro_path, class: "btn btn-primary" %>
