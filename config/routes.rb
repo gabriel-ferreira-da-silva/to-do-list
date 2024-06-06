@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get "/", to: "login#index"
   get "/login", to: "login#login"
+  get "/home", to: "home#index"
   get "/cadastro", to: "cadastro#index"
   get "/cadastrotarefa", to: "cadastrotarefa#index"
   get "/listpage", to: "listpage#index"
