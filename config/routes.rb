@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   get "/login", to: "login#login"
   get "/cadastro", to: "cadastro#index"
 
+
+  get "go_cadastro" => "cadastro#index"
+
 end

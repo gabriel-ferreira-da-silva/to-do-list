@@ -1,11 +1,32 @@
-<div> id </div>
-<input>
-<div> nome </div>
-<input>
-<div> email</div>
-<input>
-<div> password </div>
-<input>
+<h1>TO-DO LIST ! <span class="badge badge-secondary">cadastro</span></h1>
 
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">id</span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea"></textarea>
+</div>
 
-<button> cadastrar</button>
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">nome</span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea"></textarea>
+</div>
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">email</span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea"></textarea>
+</div>
+
+<div class="input-group">
+ 
+  <div class="input-group-prepend">
+    <span class="input-group-text">password</span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea"></textarea>
+</div>
+
+<%= link_to "cadastrar", cadastro_path, class: "btn btn-primary" %>
