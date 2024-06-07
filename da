@@ -1,0 +1,31 @@
+=> 
+[[32m#<Tarefa:0x000056108f91e5d8[0m
+  id: [34m[1m1[0m,
+  nome: [31m[1m"[0m[31mcomprar pao[0m[31m[1m"[0m,
+  decricao: [31m[1m"[0m[31mcomprar pao na padaria de joao[0m[31m[1m"[0m,
+  finalizada: [31m[1m"[0m[31mn[0m[31m[1m"[0m,
+  data: [31m[1m"[0m[31m?[0m[31m[1m"[0m,
+  prioridade: [31m[1m"[0m[31mbaixa[0m[31m[1m"[0m,
+  created_at: Fri, 07 Jun 2024 04:49:42.897625000 UTC +00:00,
+  updated_at: Fri, 07 Jun 2024 04:49:42.897625000 UTC +00:00,
+  membro: [36m[1mnil[0m[32m>[0m,
+ [32m#<Tarefa:0x00007681244d47e0[0m
+  id: [34m[1m2[0m,
+  nome: [31m[1m"[0m[31mfazer tarefa de casa[0m[31m[1m"[0m,
+  decricao: [31m[1m"[0m[31mfazer tarefa de matematica[0m[31m[1m"[0m,
+  finalizada: [31m[1m"[0m[31mn[0m[31m[1m"[0m,
+  data: [31m[1m"[0m[31m?[0m[31m[1m"[0m,
+  prioridade: [31m[1m"[0m[31malta[0m[31m[1m"[0m,
+  created_at: Fri, 07 Jun 2024 04:50:12.539424000 UTC +00:00,
+  updated_at: Fri, 07 Jun 2024 04:50:12.539424000 UTC +00:00,
+  membro: [36m[1mnil[0m[32m>[0m,
+ [32m#<Tarefa:0x00007681244d4498[0m
+  id: [34m[1m3[0m,
+  nome: [31m[1m"[0m[31mvarrer chao[0m[31m[1m"[0m,
+  decricao: [36m[1mnil[0m,
+  finalizada: [36m[1mnil[0m,
+  data: [36m[1mnil[0m,
+  prioridade: [36m[1mnil[0m,
+  created_at: Fri, 07 Jun 2024 13:48:21.723535000 UTC +00:00,
+  updated_at: Fri, 07 Jun 2024 13:48:21.723535000 UTC +00:00,
+  membro: [31m[1m"[0m[31mlucas[0m[31m[1m"[0m[32m>[0m]

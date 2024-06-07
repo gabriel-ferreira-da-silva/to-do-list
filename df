@@ -1,0 +1,11 @@
+=> 
+[32m#<Tarefa:0x000063bb2a4de420[0m
+ id: [36m[1mnil[0m,
+ nome: [31m[1m"[0m[31mjogar sudoko[0m[31m[1m"[0m,
+ finalizada: [31m[1m"[0m[31mfalse[0m[31m[1m"[0m,
+ data: [31m[1m"[0m[31m?[0m[31m[1m"[0m,
+ prioridade: [31m[1m"[0m[31mbaixa[0m[31m[1m"[0m,
+ created_at: [36m[1mnil[0m,
+ updated_at: [36m[1mnil[0m,
+ membro: [31m[1m"[0m[31mjoao[0m[31m[1m"[0m,
+ descricao: [31m[1m"[0m[31mjogar sudoko no iphone[0m[31m[1m"[0m[32m>[0m
