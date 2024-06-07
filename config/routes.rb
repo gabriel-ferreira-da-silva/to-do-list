@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tarefa/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -14,6 +15,9 @@ Rails.application.routes.draw do
   get "/cadastro", to: "cadastro#index"
   get "/cadastrotarefa", to: "cadastrotarefa#index"
   get "/listpage", to: "listpage#index"
+
+
+  get "/tarefa", to: "tarefa#index"
 
 
   get "go_cadastro" => "cadastro#index"
