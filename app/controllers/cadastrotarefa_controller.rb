@@ -1,4 +1,5 @@
 class CadastrotarefaController < ApplicationController
+  before_action :require_login
   def new
     @tarefa = Tarefa.new
   end

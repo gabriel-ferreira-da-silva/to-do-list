@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   get "/", to: "login#new"
   #get "/login", to: "login#login"
   get "/home", to: "home#index"
-  get "/cadastro", to: "cadastro#index"
+  #get "/cadastro", to: "cadastro#index"
+  get "/cadastro", to: "cadastro#new"
   get "/cadastrotarefa", to: "cadastrotarefa#new"
   get "/listpage", to: "listpage#index"
 
@@ -26,4 +27,5 @@ Rails.application.routes.draw do
 
   resources :tarefas, only: [:new, :create]
   resources :cadastrotarefa, only: [:new, :create]
+  resources :cadastro, only: [:new, :create]
 end
