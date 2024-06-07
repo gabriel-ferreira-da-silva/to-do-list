@@ -11,12 +11,16 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  get "/", to: "login#index"
-  get "/login", to: "login#login"
+  get "/", to: "login#new"
+  #get "/login", to: "login#login"
   get "/home", to: "home#index"
   get "/cadastro", to: "cadastro#index"
   get "/cadastrotarefa", to: "cadastrotarefa#new"
   get "/listpage", to: "listpage#index"
+
+  get 'login', to: 'login#new'
+  post 'login', to: 'login#create'
+  delete 'logout', to: 'login#destroy'
 
   get "go_cadastro" => "cadastro#index"
 
