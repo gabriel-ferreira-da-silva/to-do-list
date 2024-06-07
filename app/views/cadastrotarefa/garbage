@@ -1,0 +1,29 @@
+<%= form_with model: @tarefa, local: true do |form| %>
+  <div>
+    <%= form.label :membro %>
+    <%= form.text_field :membro %>
+  </div>
+
+  <div>
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div>
+    <%= form.label :descricao %>
+    <%= form.text_area :descricao %>
+  </div>
+
+  <div>
+    <%= form.label :prioridade %>
+    <%= form.select :prioridade, options_for_select(['baixa', 'media', 'alta']) %>
+  </div>
+  <div>
+    <%= form.label :finalizada %>
+    <%= form.select :finalizada, options_for_select(['false', 'true']) %>
+  </div>
+
+  <div >
+    <%= form.submit %>
+  </div>
+<% end %>

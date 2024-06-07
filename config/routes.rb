@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tarefas/new'
+  get 'tarefas/create'
   get 'tarefa/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -13,13 +15,11 @@ Rails.application.routes.draw do
   get "/login", to: "login#login"
   get "/home", to: "home#index"
   get "/cadastro", to: "cadastro#index"
-  get "/cadastrotarefa", to: "cadastrotarefa#index"
+  get "/cadastrotarefa", to: "cadastrotarefa#new"
   get "/listpage", to: "listpage#index"
-
-
-  get "/tarefa", to: "tarefa#index"
-
 
   get "go_cadastro" => "cadastro#index"
 
+  resources :tarefas, only: [:new, :create]
+  resources :cadastrotarefa, only: [:new, :create]
 end
