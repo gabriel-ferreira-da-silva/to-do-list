@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "/cadastro", to: "cadastro#new"
   get "/cadastrotarefa", to: "cadastrotarefa#new"
   get "/listpage", to: "listpage#index"
-  get "/edit", to: "edit#index"
+  get "/edit", to: "edit#edit"
 
 
   get 'login', to: 'login#new'
@@ -27,6 +27,9 @@ Rails.application.routes.draw do
 
   get "go_cadastro" => "cadastro#index"
 
+  #resources :edit, only: [:edit, :update] # Nested route for edit controller
+  patch 'edit/:id/update', to: 'edit#update', as: 'update_edit'
+  resources :edit, only: [:edit, :update], as: 'edit'
   resources :tarefas, only: [:new, :create]
   resources :cadastrotarefa, only: [:new, :create]
   resources :cadastro, only: [:new, :create]
