@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get "/cadastro", to: "cadastro#new"
   get "/cadastrotarefa", to: "cadastrotarefa#new"
   get "/listpage", to: "listpage#index"
+  get "/edit", to: "edit#index"
+
 
   get 'login', to: 'login#new'
   post 'login', to: 'login#create'

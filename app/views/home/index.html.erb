@@ -3,16 +3,20 @@
     <%= link_to "cadastrar tarefa", cadastrotarefa_path, class: "btn btn-primary" %>
     <%= link_to "cadastrar novo membro", cadastro_path, class: "btn btn-primary" %>
 </div>
+
 <div>
     <ul>
         <% @tarefas.each do |tarefa| %>
-            <li><%= tarefa.nome %>
-                <%= tarefa.descricao%>
-                <%= tarefa.finalizada%>
-                <%= tarefa.data%>
-                <%= tarefa.prioridade%>
-                <%= tarefa.membro%>
-                </li>
+            <div class="card bg-light mb-3" style="max-width: 15rem; max-height: 20rem">
+                <div class="card-header"> <%=tarefa.nome%> </div>
+                <div class="card-body">
+                    <p class="card-text">descricao: <%=tarefa.descricao%></p>
+                    <p class="card-text">prioridade: <%=tarefa.prioridade%></p>
+                    <p class="card-text">done: <%=tarefa.finalizada%></p>
+                    <%= link_to "editar", edit_path, class: "btn btn-primary" %>
+                    <%= link_to "finalizar", edit_path, class: "btn btn-primary" %>
+                </div>
+            </div>
         <% end %>
     </ul>   
 </div>
