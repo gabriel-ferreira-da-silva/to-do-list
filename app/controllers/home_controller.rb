@@ -1,12 +1,14 @@
 class HomeController < ApplicationController
-  def index
-  end
 
   before_action :require_login
 
   def index
     # Home page content
+    membro = Membro.find(session[:user_id])
+    @tarefas=Tarefa.where(membro: membro.name)
   end
+
+
 
   private
 
