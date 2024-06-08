@@ -1,3 +1,40 @@
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">To-Do list</a>
+
+  <div class="form-inline" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "home", home_path, class:"nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="form-inline" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "listar tarefas", listpage_path, class:"nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="form-inline" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "cadastrar Membro", cadastro_path, class:"nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="form-inline" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "cadastrar tarefa", cadastrotarefa_path, class:"nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+
 <div>
     <ul>
         <% @tarefas.each do |tarefa| %>

@@ -1,5 +1,5 @@
 class EditController < ApplicationController
-
+  before_action :require_login
   def edit
     @tarefa = Tarefa.find([params[:id]])
   end

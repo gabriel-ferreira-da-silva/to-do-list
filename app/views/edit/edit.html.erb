@@ -1,30 +1,72 @@
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">To-Do list</a>
+
+  <div class="form-inline" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "home", home_path, class:"nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="form-inline" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "listar tarefas", listpage_path, class:"nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="form-inline" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "cadastrar Membro", cadastro_path, class:"nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="form-inline" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "cadastrar tarefa", cadastrotarefa_path, class:"nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+
+
 <%= form_with model: @tarefa,url: update_edit_path(@tarefa), local: true do |form| %>
   
-  <div>
-    <%= form.label :membro %>
+  <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :nome %></span>
+        <%= form.text_field :nome %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
+  <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :descricao %></span>
+        <%= form.text_area :descricao %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :descricao %>
-    <%= form.text_area :descricao %>
+  <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :prioridade %></span>
+        <%= form.select :prioridade, options_for_select(['baixa', 'media', 'alta']) %>
+    </div>
   </div>
-
-  <div>
-    <%= form.label :prioridade %>
-    <%= form.select :prioridade, options_for_select(['baixa', 'media', 'alta']) %>
+  
+  <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :finalizada %></span>
+        <%= form.select :finalizada, options_for_select(['false', 'true']) %>
+    </div>
   </div>
-
-  <div>
-    <%= form.label :finalizada %>
-    <%= form.select :finalizada, options_for_select(['false', 'true']) %>
-  </div>
-
+  
   <div >
-    <%= form.submit %>
+    <%= form.submit "edit", class: "btn btn-primary" %>
   </div>
 <% end %>
