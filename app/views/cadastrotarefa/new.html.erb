@@ -12,6 +12,22 @@
   <div class="form-inline" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
+        <%= link_to "Editar Conta", editmembro_path, class:"nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="form-inline" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "listar membros", listmembros_path, class:"nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="form-inline" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
         <%= link_to "listar tarefas", listpage_path, class:"nav-link" %>
       </li>
     </ul>
@@ -36,13 +52,7 @@
 </nav>
 
 <%= form_with model: @tarefa,url: cadastrotarefa_index_path, local: true do |form| %>
-  <div class="input-group input-group-sm mb-3">
-    <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm">    <%= form.label :membro %> </span>
-        <%= form.text_field :membro %>
-    </div>
-  </div>
-
+  
   <div class="input-group input-group-sm mb-3">
     <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-sm">    <%= form.label :nome %> </span>

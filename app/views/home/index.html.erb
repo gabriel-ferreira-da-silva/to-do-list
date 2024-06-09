@@ -60,7 +60,7 @@
     <div class="list-tarefa">
         <% @tarefas.each do |tarefa| %>
             <div class="card bg-light mb-3" style="width: 20rem; flex-wrap: wrap;">
-                <div class="card-header"> <b><%=tarefa.nome%></b>  <p><%=tarefa.membro%></p></div>
+                <div class="card-header"> <b><%=tarefa.nome%></b>  <p><%=@membro_name%></p></div>
                 <div class="card-body">
                     <p class="card-text"><b>descricao:</b> <%=tarefa.descricao%></p>
                     <p class="card-text"><b>prioridade:</b> <%=tarefa.prioridade%></p>
