@@ -80,9 +80,6 @@
 
 <% end %>
 
-<!----------
-
-<%= form_with(model: @membro, url: update_membro_path(@membro), method: :delete, data: { confirm: 'Are you sure?' }) do |form| %>
-    <%= form.submit 'Delete', class: 'btn btn-danger' %>
-    <% end %>
--------->
+<%= form_with(model: @membro, url: delete_membro_path(), method: :delete, data: { confirm: 'Are you sure?' }) do |form| %>
+<%= form.submit 'Delete', class: 'btn btn-danger' %>
+<% end %>

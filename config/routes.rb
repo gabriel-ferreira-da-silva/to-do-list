@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get "/listmembros", to: "cadastro#listmembros", as: "listmembros"
   get "/editmembro", to: "cadastro#editmembro", as: "editmembro"
 
+  delete "/deletemembro", to: "cadastro#delete_membro" ,  as: "delete_membro"
   patch "/updatemembro", to: "cadastro#update_membro", as: "update_membro"
 
   get 'login', to: 'login#new'
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
   patch 'edit/:id/update', to: 'edit#update', as: 'update_edit'
   patch 'edit/:id/updatedatetime', to: 'edit#updatedatetime', as: 'updatedatetime_edit'
   delete 'edit/:id', to: 'edit#destroy', as: 'destroy_edit'
+
 
 
   resources :edit, only: [:edit, :update], as: 'edit'

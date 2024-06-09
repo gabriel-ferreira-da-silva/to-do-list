@@ -21,6 +21,12 @@ class CadastroController < ApplicationController
     redirect_to listmembros_path
   end
 
+  def delete_membro
+    @membro = Membro.find(session[:user_id])
+    @membro.destroy
+    redirect_to login_path
+  end
+
   def create
     @membro = Membro.new(membro_params)
 
