@@ -13,6 +13,13 @@ class EditController < ApplicationController
     end
   end
 
+  def updatedatetime
+    @tarefa = Tarefa.find(params[:id])
+    @tarefa.update(data: Time.now)
+    @tarefa.update(finalizada: "true")
+    redirect_to home_path, notice: 'Datetime updated successfully.'
+  end
+
   def destroy
     @tarefa = Tarefa.find(params[:id])
     @tarefa.destroy

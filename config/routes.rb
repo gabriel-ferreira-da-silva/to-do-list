@@ -27,8 +27,8 @@ Rails.application.routes.draw do
 
   get "go_cadastro" => "cadastro#index"
 
-
   patch 'edit/:id/update', to: 'edit#update', as: 'update_edit'
+  patch 'edit/:id/updatedatetime', to: 'edit#updatedatetime', as: 'updatedatetime_edit'
   delete 'edit/:id', to: 'edit#destroy', as: 'destroy_edit'
   resources :edit, only: [:edit, :update], as: 'edit'
   resources :tarefas, only: [:new, :create]
