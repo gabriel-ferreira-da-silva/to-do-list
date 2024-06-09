@@ -23,6 +23,8 @@ class CadastroController < ApplicationController
 
   def delete_membro
     @membro = Membro.find(session[:user_id])
+    @tarefas = Tarefa.where(membro: @membro.name)
+    @tarefas.destroy_all
     @membro.destroy
     redirect_to login_path
   end
