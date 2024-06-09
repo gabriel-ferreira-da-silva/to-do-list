@@ -14,3 +14,17 @@
  *= require_self
  */
  
+/*
+ .list-tarefa{
+    display: flex;
+    flex-direction: row;
+ }*/
+
+ .list-tarefa{
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    gap: 10px; 
+ }
+
+

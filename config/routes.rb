@@ -27,8 +27,9 @@ Rails.application.routes.draw do
 
   get "go_cadastro" => "cadastro#index"
 
-  #resources :edit, only: [:edit, :update] # Nested route for edit controller
+
   patch 'edit/:id/update', to: 'edit#update', as: 'update_edit'
+  delete 'edit/:id', to: 'edit#destroy', as: 'destroy_edit'
   resources :edit, only: [:edit, :update], as: 'edit'
   resources :tarefas, only: [:new, :create]
   resources :cadastrotarefa, only: [:new, :create]

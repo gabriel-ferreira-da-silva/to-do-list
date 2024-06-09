@@ -8,7 +8,7 @@ class CadastrotarefaController < ApplicationController
     @tarefa = Tarefa.new(tarefa_params)
 
     if @tarefa.save
-      redirect_to new_cadastrotarefa_path, notice: 'Tarefa was successfully created.'
+      redirect_to home_path, notice: 'Tarefa was successfully created.'
     else
       render :new
     end

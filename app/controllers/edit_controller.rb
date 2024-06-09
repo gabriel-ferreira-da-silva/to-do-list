@@ -13,6 +13,15 @@ class EditController < ApplicationController
     end
   end
 
+  def destroy
+    @tarefa = Tarefa.find(params[:id])
+    @tarefa.destroy
+    respond_to do |format|
+      format.html { redirect_to home_path, notice: 'Tarefa was successfully deleted.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def tarefa_params

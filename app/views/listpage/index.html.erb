@@ -35,21 +35,18 @@
 
 </nav>
 
-<div>
-    <ul>
-        <% @tarefas.each do |tarefa| %>
+<div >
+    <div class="list-tarefa">
+        <% @tarefas.each do |tarefa|%>
             <div class="card bg-light mb-3" style="max-width: 15rem; max-height: 20rem">
-                <div class="card-header"> <%=tarefa.nome%> </div>
+                <div class="card-header"> <b><%=tarefa.nome%></b> <p><%=tarefa.membro%></p></div>
                 <div class="card-body">
-                    <p class="card-text">descricao: <%=tarefa.descricao%></p>
-                    <p class="card-text">prioridade: <%=tarefa.prioridade%></p>
-                    <p class="card-text">membro: <%=tarefa.membro%></p>
-                    <p class="card-text">done: <%=tarefa.finalizada%></p>
-                    <%= link_to "editar", edit_edit_path(tarefa), class: "btn btn-primary" %>
-                    
-                    <%= link_to "finalizar", edit_path, class: "btn btn-primary" %>
+                    <p class="card-text"><b>Descricao:</b> <%=tarefa.descricao%> </p>
+                    <p class="card-text"><b>Prioridade:</b> <%=tarefa.prioridade%></p>
+                    <p class="card-text"><b>Done:</b> <%=tarefa.finalizada%></p>
+                    <p class="card-text"><b>Data:</b> <%=tarefa.data%></p>
                 </div>
             </div>
         <% end %>
-    </ul>   
+    </div>   
 </div>

@@ -69,4 +69,9 @@
   <div >
     <%= form.submit "edit", class: "btn btn-primary" %>
   </div>
+
 <% end %>
+
+<%= form_with(model: @tarefa, url: destroy_edit_path(@tarefa), method: :delete, data: { confirm: 'Are you sure?' }) do |form| %>
+    <%= form.submit 'Delete', class: 'btn btn-danger' %>
+    <% end %>

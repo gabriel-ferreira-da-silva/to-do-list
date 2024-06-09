@@ -11,7 +11,7 @@ class CadastroController < ApplicationController
     @membro = Membro.new(membro_params)
 
     if @membro.save
-      redirect_to new_cadastro_path, notice: 'mebro was successfully created.'
+      redirect_to home_path, notice: 'mebro was successfully created.'
     else
       render :new
     end
