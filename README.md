@@ -1,20 +1,12 @@
 # README
 
-to-do app implementado com ruby on rails. Video explicando o projeto disponivel em 
+to-do app implementado com ruby on rails. Video explicando o projeto disponivel neste github e em https://www.youtube.com/watch?v=nTwakyjeThE&ab_channel=GabrielFerreiradaSilva
 
-[ neste diretorio do github]: https://github.com/gabriel-ferreira-da-silva/to-do-list/blob/main/video.mp4	"  neste diretorio do github"
 
-https://github.com/gabriel-ferreira-da-silva/to-do-list/blob/main/video.mp4
 
 
 
 ![](https://github.com/gabriel-ferreira-da-silva/to-do-list/blob/main/imagens/img1.png)
-
-![](https://github.com/gabriel-ferreira-da-silva/to-do-list/blob/main/imagens/img2.png)
-
-![](https://github.com/gabriel-ferreira-da-silva/to-do-list/blob/main/imagens/img3.png)
-
-
 
 # to do
 
