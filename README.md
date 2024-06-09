@@ -2,7 +2,7 @@
 
 to-do app implementado com ruby on rails. Video explicando o projeto disponivel 
 
-[neste diretorio do github]: https://github.com/gabriel-ferreira-da-silva/to-do-list/blob/main/video.mp4
+[neste diretorio do github]: https://github.com/gabriel-ferreira-da-silva/to-do-list/blob/main/video.mp4	" neste diretorio do github"
 
 
 
