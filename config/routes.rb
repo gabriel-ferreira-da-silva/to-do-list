@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   get "/listpage", to: "listpage#index"
   get "/edit", to: "edit#edit"
   get "/listmembros", to: "cadastro#listmembros", as: "listmembros"
+  get "/editmembro", to: "cadastro#editmembro", as: "editmembro"
 
+  patch "/updatemembro", to: "cadastro#update_membro", as: "update_membro"
 
   get 'login', to: 'login#new'
   post 'login', to: 'login#create'

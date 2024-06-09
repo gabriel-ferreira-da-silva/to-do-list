@@ -11,6 +11,16 @@ class CadastroController < ApplicationController
     @membros=Membro.all
   end
 
+  def editmembro
+    @membro = Membro.find(session[:user_id])
+  end
+
+  def update_membro
+    @membro = Membro.find(session[:user_id])
+    @membro.update(membro_params)
+    redirect_to listmembros_path
+  end
+
   def create
     @membro = Membro.new(membro_params)
 

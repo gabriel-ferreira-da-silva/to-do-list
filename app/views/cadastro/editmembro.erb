@@ -55,22 +55,22 @@
 <%= form_with model: @membro,url: update_membro_path(), method: :patch, local: true do |form| %>
   <div class="input-group input-group-sm mb-3">
     <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :nome %></span>
-        <%= form.text_field :name %>
+        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :name %></span>
+        <%= form.text_field :name, placeholder: @membro.name %>
     </div>
   </div>
 
   <div class="input-group input-group-sm mb-3">
     <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :email %></span>
-        <%= form.text_field :email %>
+        <%= form.text_field :email , placeholder: @membro.email%>
     </div>
   </div>
 
   <div class="input-group input-group-sm mb-3">
     <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :senha %></span>
-        <%= form.text_field :senha %>
+        <%= form.text_field :senha , placeholder: @membro.senha %>
     </div>
   </div>
   
