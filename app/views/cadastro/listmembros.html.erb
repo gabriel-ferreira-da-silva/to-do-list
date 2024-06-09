@@ -43,32 +43,15 @@
 
 </nav>
 
-
-<div class="alert alert-primary" role="alert">
-  suas tarefas
-</div>
-
-<div>
+<div >
     <div class="list-tarefa">
-        <% @tarefas.each do |tarefa| %>
-            <div class="card bg-light mb-3" style="width: 20rem; flex-wrap: wrap;">
-                <div class="card-header"> <b><%=tarefa.nome%></b>  <p><%=tarefa.membro%></p></div>
+        <% @membros.each do |membro|%>
+            <div class="card bg-light mb-3" style="max-width: 15rem; max-height: 20rem">
+                <div class="card-header"> <b><%=membro.name%></b> </div>
                 <div class="card-body">
-                    <p class="card-text"><b>descricao:</b> <%=tarefa.descricao%></p>
-                    <p class="card-text"><b>prioridade:</b> <%=tarefa.prioridade%></p>
-                    <p class="card-text"><b>done:</b> <%=tarefa.finalizada%></p>
-                    <p class="card-text"><b>data:</b> <%=tarefa.data%></p>            
-                    <div style="display: flex; flex-direction: row; gap: 10px; ">
-                    <%= button_to "Finalizar", updatedatetime_edit_path(tarefa), method: :patch, data: { confirm: 'Are you sure?' }, class: "btn btn-success"%>
-                    <%= link_to "editar", edit_edit_path(tarefa), class: "btn btn-primary" %>
-                    <%= button_to "excluir", destroy_edit_path(tarefa), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-                    </div>
-
-                     
+                  <b>email:</b> <%=membro.email%>  
                 </div>
-                
             </div>
-            
         <% end %>
-    </div>
+    </div>   
 </div>

@@ -7,6 +7,10 @@ class CadastroController < ApplicationController
     @membro = Membro.new
   end
 
+  def listmembros
+    @membros=Membro.all
+  end
+
   def create
     @membro = Membro.new(membro_params)
 

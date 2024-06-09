@@ -1,0 +1,88 @@
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">To-Do list</a>
+
+  <div class="form-inline" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "home", home_path, class:"nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="form-inline" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "excluir conta", listpage_path, class:"nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="form-inline" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "listar membros", listpage_path, class:"nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="form-inline" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "listar tarefas", listpage_path, class:"nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="form-inline" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "cadastrar Membro", cadastro_path, class:"nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="form-inline" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "cadastrar tarefa", cadastrotarefa_path, class:"nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+
+
+<%= form_with model: @membro,url: update_membro_path(), method: :patch, local: true do |form| %>
+  <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :nome %></span>
+        <%= form.text_field :name %>
+    </div>
+  </div>
+
+  <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :email %></span>
+        <%= form.text_field :email %>
+    </div>
+  </div>
+
+  <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :senha %></span>
+        <%= form.text_field :senha %>
+    </div>
+  </div>
+  
+  <div >
+    <%= form.submit "edit", class: "btn btn-primary" %>
+  </div>
+
+<% end %>
+
+<!----------
+
+<%= form_with(model: @membro, url: update_membro_path(@membro), method: :delete, data: { confirm: 'Are you sure?' }) do |form| %>
+    <%= form.submit 'Delete', class: 'btn btn-danger' %>
+    <% end %>
+-------->
