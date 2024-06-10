@@ -7,6 +7,7 @@ to-do app implementado com ruby on rails. Video explicando o projeto disponivel 
 
 
 ![](https://github.com/gabriel-ferreira-da-silva/to-do-list/blob/main/imagens/img1.png)
+![](https://github.com/gabriel-ferreira-da-silva/to-do-list/blob/main/imagens/img2.png)
 
 # to do
 
