@@ -52,6 +52,7 @@
 
 </nav>
 
+<div style="display: flex; flex-direction: column;gap:10px">
 
 <%= form_with model: @membro,url: update_membro_path(), method: :patch, local: true do |form| %>
   <div class="input-group input-group-sm mb-3">
@@ -76,12 +77,13 @@
   </div>
   
   <div >
-    <%= form.submit "edit", class: "btn btn-primary" %>
+    <%= form.submit "edit", class: "btn btn-primary", style: "width: 10rem;"%>
   </div>
 
 <% end %>
 
-<%= form_with(model: @membro, url: delete_membro_path(), method: :delete, data: { confirm: 'Are you sure?' }) do |form| %>
-    <%= form.submit 'excluir', class: 'btn btn-danger', style: "gap 5px"%>
+    <%= form_with(model: @membro, url: delete_membro_path(), method: :delete, data: { confirm: 'Are you sure?' }) do |form| %>
+    <%= form.submit 'excluir', class: 'btn btn-danger', style: "width: 10rem;"%>
     <% end %>
+</div>
 
