@@ -65,7 +65,7 @@ class CadastroController < ApplicationController
     puts membro_params
 
     if response.success?
-      redirect_to home_path, notice: 'user was successfully created.'
+      redirect_to listmembros_path, notice: 'user was successfully created.'
     else
       puts "\n\n\n something wnet wrong\n\n\n"
       flash.now[:alert] = 'Failed to create tarefa. Please try again.'
