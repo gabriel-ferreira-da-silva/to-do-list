@@ -55,9 +55,9 @@
     <div class="list-tarefa">
         <% @membros.each do |membro|%>
             <div class="card bg-light mb-3" style="max-width: 15rem; max-height: 20rem">
-                <div class="card-header"> <b><%=membro.name%></b> </div>
+                <div class="card-header"> <b><%=membro['name']%></b> </div>
                 <div class="card-body">
-                  <b>email:</b> <%=membro.email%>  
+                  <b>email:</b> <%=membro['email']%>  
                 </div>
             </div>
         <% end %>

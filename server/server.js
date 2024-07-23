@@ -50,10 +50,14 @@ app.post('/authenticate', (req, res) => {
 
 app.get('/users', (req, res) => {
     const query = 'SELECT * FROM users';
+    console.log("get all users request made")
     pool.query(query, (err, results) => {
         if (err) {
+            console.log("error")
             return res.status(500).json({ error: err.message });
         }
+        console.log("get all sucess")
+
         res.status(200).json(results);
     });
 });
@@ -153,6 +157,21 @@ app.delete('/tasks/:id', (req, res) => {
 
     const query = 'DELETE FROM tasks WHERE id = ?';
     pool.query(query, [taskId], (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        if (results.affectedRows === 0) {
+            return res.status(404).json({ error: 'Task not found' });
+        }
+        res.status(200).json({ message: 'Task deleted successfully' });
+    });
+});
+
+app.delete('/tasks/byuser/:id', (req, res) => {
+    const userId = req.params.id;
+
+    const query = 'DELETE FROM tasks WHERE user_id = ?';
+    pool.query(query, [userId], (err, results) => {
         if (err) {
             return res.status(500).json({ error: err.message });
         }

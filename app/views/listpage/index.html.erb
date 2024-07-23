@@ -55,12 +55,12 @@
     <div class="list-tarefa">
         <% @tarefas.each do |tarefa|%>
             <div class="card bg-light mb-3" style="max-width: 15rem; max-height: 20rem">
-                <div class="card-header"> <b><%=tarefa.nome%></b> <p><%=Membro.find(tarefa.membro).name%></p></div>
+                <div class="card-header"> <b><%=tarefa['name']%></b> <p><%=%></p></div>
                 <div class="card-body">
-                    <p class="card-text"><b>Descricao:</b> <%=tarefa.descricao%> </p>
-                    <p class="card-text"><b>Prioridade:</b> <%=tarefa.prioridade%></p>
-                    <p class="card-text"><b>Done:</b> <%=tarefa.finalizada%></p>
-                    <p class="card-text"><b>Data:</b> <%=tarefa.data%></p>
+                    <p class="card-text"><b>Descricao:</b> <%=tarefa['descricao']%> </p>
+                    <p class="card-text"><b>Prioridade:</b> <%=tarefa['priority']%></p>
+                    <p class="card-text"><b>Done:</b> <%=tarefa['isEnded']%></p>
+                    <p class="card-text"><b>Data:</b> <%=tarefa['due_date']%></p>
                 </div>
             </div>
         <% end %>

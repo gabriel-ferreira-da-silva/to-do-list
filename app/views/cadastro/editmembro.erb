@@ -54,25 +54,25 @@
 
 <div style="display: flex; flex-direction: column;gap:10px">
 
-<%= form_with model: @membro,url: update_membro_path(), method: :patch, local: true do |form| %>
+<%= form_with url: update_membro_path(), method: :patch, local: true do |form| %>
   <div class="input-group input-group-sm mb-3">
     <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :name %></span>
-        <%= form.text_field :name, placeholder: @membro.name %>
+        <%= form.text_field :name, placeholder: "name" %>
     </div>
   </div>
 
   <div class="input-group input-group-sm mb-3">
     <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :email %></span>
-        <%= form.text_field :email , placeholder: @membro.email%>
+        <%= form.text_field :email , placeholder: "email"%>
     </div>
   </div>
 
   <div class="input-group input-group-sm mb-3">
     <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :senha %></span>
-        <%= form.text_field :senha , placeholder: @membro.senha %>
+        <%= form.text_field :senha , placeholder:  "senha" %>
     </div>
   </div>
   
@@ -82,7 +82,7 @@
 
 <% end %>
 
-    <%= form_with(model: @membro, url: delete_membro_path(), method: :delete, data: { confirm: 'Are you sure?' }) do |form| %>
+    <%= form_with(url: delete_membro_path(), method: :delete, data: { confirm: 'Are you sure?' }) do |form| %>
     <%= form.submit 'excluir', class: 'btn btn-danger', style: "width: 10rem;"%>
     <% end %>
 </div>
