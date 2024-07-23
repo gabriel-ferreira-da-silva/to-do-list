@@ -4,7 +4,7 @@
   <div class="form-inline" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "home", home_path, class:"nav-link" %>
+        <%= link_to "home", home_path, class: "nav-link" %>
       </li>
     </ul>
   </div>
@@ -12,7 +12,7 @@
   <div class="form-inline" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "Editar Conta", editmembro_path, class:"nav-link" %>
+        <%= link_to "Editar Conta", editmembro_path, class: "nav-link" %>
       </li>
     </ul>
   </div>
@@ -20,7 +20,7 @@
   <div class="form-inline" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "listar membros", listmembros_path, class:"nav-link" %>
+        <%= link_to "listar membros", listmembros_path, class: "nav-link" %>
       </li>
     </ul>
   </div>
@@ -28,7 +28,7 @@
   <div class="form-inline" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "listar tarefas", listpage_path, class:"nav-link" %>
+        <%= link_to "listar tarefas", listpage_path, class: "nav-link" %>
       </li>
     </ul>
   </div>
@@ -36,7 +36,7 @@
   <div class="form-inline" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "cadastrar Membro", cadastro_path, class:"nav-link" %>
+        <%= link_to "cadastrar Membro", cadastro_path, class: "nav-link" %>
       </li>
     </ul>
   </div>
@@ -44,18 +44,17 @@
   <div class="form-inline" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "cadastrar tarefa", cadastrotarefa_path, class:"nav-link" %>
+        <%= link_to "cadastrar tarefa", cadastrotarefa_path, class: "nav-link" %>
       </li>
     </ul>
   </div>
-
 </nav>
 
-<%= form_with model: @membro,url: cadastro_path, local: true do |form| %>
+<%= form_with url: cadastro_path, local: true do |form| %>
   <div>
     <div class="input-group input-group-sm mb-3">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm"> <%= form.label :name %> </span>
+        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :name %></span>
         <%= form.text_field :name %>
       </div>
     </div>
@@ -64,7 +63,7 @@
   <div>
     <div class="input-group input-group-sm mb-3">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm"> <%= form.label :email %></span>
+        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :email %></span>
         <%= form.text_field :email %>
       </div>
     </div>
@@ -73,13 +72,13 @@
   <div>
     <div class="input-group input-group-sm mb-3">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :senha %></span>
-        <%= form.text_area :senha %>
+        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :password %></span>
+        <%= form.password_field :password %>
       </div>
     </div>
   </div>
 
-  <div >
+  <div>
     <%= form.submit "create membro", class: "btn btn-primary" %>
   </div>
 <% end %>

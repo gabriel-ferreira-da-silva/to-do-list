@@ -1,47 +1,55 @@
+require 'httparty'
+
+require_dependency 'node_user_service'
+
 class CadastroController < ApplicationController
   before_action :require_login
-  before_action :require_login
+
   def index
+
   end
+
   def new
-    @membro = Membro.new
   end
 
   def listmembros
-    @membros=Membro.all
+
   end
 
-  def editmembro
-    @membro = Membro.find(session[:user_id])
-  end
+
 
   def update_membro
-    @membro = Membro.find(session[:user_id])
-    @membro.update(membro_params)
-    redirect_to listmembros_path
+
   end
 
   def delete_membro
-    @membro = Membro.find(session[:user_id])
-    @tarefas = Tarefa.where(membro: @membro.id)
-    @tarefas.destroy_all
-    @membro.destroy
-    redirect_to login_path
+
   end
 
   def create
-    @membro = Membro.new(membro_params)
+    membro_params = {
+      name: params[:name],
+      password: params[:password],
+      email: params[:email],
+    }
 
-    if @membro.save
-      redirect_to home_path, notice: 'mebro was successfully created.'
+    response = NodeUserService.create_user(membro_params)
+    puts membro_params
+
+    if response.success?
+      redirect_to home_path, notice: 'user was successfully created.'
     else
+      puts "\n\n\n something wnet wrong\n\n\n"
+      flash.now[:alert] = 'Failed to create tarefa. Please try again.'
       render :new
     end
   end
 
   private
 
-  def membro_params
-    params.require(:membro).permit(:name, :email, :senha)
+  def require_login
+    unless session[:user_id]
+      redirect_to login_path, alert: 'You must be logged in to access this page.'
+    end
   end
 end

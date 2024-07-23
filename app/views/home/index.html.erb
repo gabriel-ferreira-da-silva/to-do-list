@@ -60,19 +60,19 @@
     <div class="list-tarefa">
         <% @tarefas.each do |tarefa| %>
             <div class="card bg-light mb-3" style="width: 20rem; flex-wrap: wrap;">
-                <div class="card-header"> <b><%=tarefa.nome%></b>  <p><%=@membro_name%></p></div>
+                <div class="card-header"> <b><%= tarefa['name'] %></b>  <p><%= @membro_name %></p></div>
                 <div class="card-body">
-                    <p class="card-text"><b>descricao:</b> <%=tarefa.descricao%></p>
-                    <p class="card-text"><b>prioridade:</b> <%=tarefa.prioridade%></p>
-                    <p class="card-text"><b>done:</b> <%=tarefa.finalizada%></p>
-                    <p class="card-text"><b>data:</b> <%=tarefa.data%></p>            
-                    <div style="display: flex; flex-direction: row; gap: 10px; ">
-                    <%= button_to "Finalizar", updatedatetime_edit_path(tarefa), method: :patch, data: { confirm: 'Are you sure?' }, class: "btn btn-success"%>
-                    <%= link_to "editar", edit_edit_path(tarefa), class: "btn btn-primary" %>
-                    <%= button_to "excluir", destroy_edit_path(tarefa), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+                    <p class="card-text"><b>descricao:</b> <%= tarefa['description'] %></p>
+                    <p class="card-text"><b>prioridade:</b> <%= tarefa['priority'] %></p>
+                    <p class="card-text"><b>done:</b> <%= tarefa['isEnded'] %></p>
+                    <p class="card-text"><b>data:</b> <%= tarefa['due_date'] %></p>            
+                    <div style="display: flex; flex-direction: row; gap: 10px;">
+                      <%= button_to "Finalizar", updatedatetime_edit_path(tarefa['id']), method: :patch, data: { confirm: 'Are you sure?' }, class: "btn btn-success" %>
+                      <%= link_to "editar", edit_edit_path(tarefa['id']), class: "btn btn-primary" %>
+                      <%= button_to "excluir", destroy_edit_path(tarefa['id']), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
                     </div>
                 </div>
-            </div>
+            </div>    
         <% end %>
     </div>
 </div>

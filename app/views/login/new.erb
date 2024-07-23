@@ -6,7 +6,7 @@
   <div>
     <div class="input-group input-group-sm mb-3">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm">    <%= form.label :name %> </span>
+        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :name %></span>
         <%= form.text_field :name %>
       </div>
     </div>
@@ -15,16 +15,17 @@
   <div>
     <div class="input-group input-group-sm mb-3">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm">    <%= form.label :senha %> </span>
+        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :senha %></span>
         <%= form.password_field :senha %>
       </div>
     </div>
   </div>
   
   <div>
-    <%= form.submit "Login" , class: "btn btn-primary"  %>
+    <%= form.submit "Login", class: "btn btn-primary" %>
   </div>
-
-
-
 <% end %>
+
+
+
+

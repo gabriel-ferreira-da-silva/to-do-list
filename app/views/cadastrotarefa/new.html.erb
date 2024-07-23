@@ -51,40 +51,30 @@
 
 </nav>
 
-<%= form_with model: @tarefa,url: cadastrotarefa_index_path, local: true do |form| %>
-  
-  <div class="input-group input-group-sm mb-3">
-    <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm">    <%= form.label :nome %> </span>
-    
-    <%= form.text_field :nome %>
-  </div>
-  </div>
 
+<%= form_with url: cadastrotarefa_path, local: true do |form| %>
   <div class="input-group input-group-sm mb-3">
     <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm">    <%= form.label :descricao %> </span>
-    
-    <%= form.text_area :descricao %>
-  </div>
-  </div>
-
-  <div class="input-group input-group-sm mb-3">
-    <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm">    <%= form.label :prioridade %> </span>
-    
-      <%= form.select :prioridade, options_for_select(['baixa', 'media', 'alta']) %>  
-  </div>
-  </div>
-
-  <div class="input-group input-group-sm mb-3">
-    <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm">    <%= form.label :finalizada %> </span>
-      <%= form.select :finalizada, options_for_select(['false', 'true']) %>
+      <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :name %></span>
+      <%= form.text_field :name %>
     </div>
   </div>
 
-  <div >
-    <%= form.submit "create", class: "btn btn-primary" %>
+  <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :description %></span>
+      <%= form.text_area :description %>
+    </div>
+  </div>
+
+  <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :priority %></span>
+      <%= form.select :priority, options_for_select(['low', 'medium', 'high']) %>
+    </div>
+  </div>
+
+  <div>
+    <%= form.submit "Create", class: "btn btn-primary" %>
   </div>
 <% end %>

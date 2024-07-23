@@ -1,23 +1,38 @@
+require 'httparty'
+
 class CadastrotarefaController < ApplicationController
   before_action :require_login
+
   def new
-    @tarefa = Tarefa.new
+
   end
 
   def create
-    @tarefa = Tarefa.new(tarefa_params)
-    @membro = Membro.find(session[:user_id])
-    if @tarefa.save
+    tarefa_params = {
+      name: params[:name],
+      description: params[:description],
+      user_id: session[:user_id],
+      isEnded: "false",
+      priority: params[:priority]
+    }
+
+    response = NodeTaskService.create_task(tarefa_params)
+    puts tarefa_params
+
+    if response.success?
       redirect_to home_path, notice: 'Tarefa was successfully created.'
     else
+      puts "\n\n\n something wnet wrong\n\n\n"
+      flash.now[:alert] = 'Failed to create tarefa. Please try again.'
       render :new
     end
-    @tarefa.update(membro: @membro.id)
   end
 
   private
 
-  def tarefa_params
-    params.require(:tarefa).permit(:nome, :descricao, :membro, :finalizada, :prioridade)
+  def require_login
+    unless session[:user_id]
+      redirect_to login_path, alert: 'You must be logged in to access this page.'
+    end
   end
 end
