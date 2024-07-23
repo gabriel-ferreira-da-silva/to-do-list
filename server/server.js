@@ -236,49 +236,69 @@ app.put('/users/:id', (req, res) => {
 
 app.put('/tasks/:id', (req, res) => {
     const taskId = req.params.id;
-    const { name, description, priority, isEnded, due_date, user_id } = req.body;
+    const query1 = 'SELECT * FROM tasks WHERE id = ?';
+    console.log("tasks put update request made:", taskId, typeof(taskId));
 
-    if (!name && !description && !priority && !isEnded && !due_date && !user_id) {
-        return res.status(400).json({ error: 'At least one field (name, description, priority, isEnded, due_date, or user_id) is required to update' });
-    }
-
-    const fields = [];
-    const values = [];
-    if (name) {
-        fields.push('name = ?');
-        values.push(name);
-    }
-    if (description) {
-        fields.push('description = ?');
-        values.push(description);
-    }
-    if (priority) {
-        fields.push('priority = ?');
-        values.push(priority);
-    }
-    if (isEnded) {
-        fields.push('isEnded = ?');
-        values.push(isEnded);
-    }
-    if (due_date) {
-        fields.push('due_date = ?');
-        values.push(due_date);
-    }
-    if (user_id) {
-        fields.push('user_id = ?');
-        values.push(user_id);
-    }
-    values.push(taskId);
-
-    const query = `UPDATE tasks SET ${fields.join(', ')} WHERE id = ?`;
-    pool.query(query, values, (err, results) => {
+    pool.query(query1, [taskId], (err, results) => {
         if (err) {
+            console.log("tasks byuser request error:", taskId, typeof(taskId));
             return res.status(500).json({ error: err.message });
         }
-        if (results.affectedRows === 0) {
+
+        if (results.length === 0) {
             return res.status(404).json({ error: 'Task not found' });
         }
-        res.status(200).json({ message: 'Task updated successfully' });
+
+        if (results[0].isEnded === "true") {
+            return res.status(200).json({ message: 'Task cant be updated' });
+        }
+
+        const { name, description, priority, isEnded, due_date, user_id } = req.body;
+        console.log("put tasks is being called");
+
+        if (!name && !description && !priority && !isEnded && !due_date && !user_id) {
+            return res.status(400).json({ error: 'At least one field (name, description, priority, isEnded, due_date, or user_id) is required to update' });
+        }
+
+        const fields = [];
+        const values = [];
+
+        if (name) {
+            fields.push('name = ?');
+            values.push(name);
+        }
+        if (description) {
+            fields.push('description = ?');
+            values.push(description);
+        }
+        if (priority) {
+            fields.push('priority = ?');
+            values.push(priority);
+        }
+        if (isEnded) {
+            fields.push('isEnded = ?');
+            values.push(isEnded);
+        }
+        if (due_date) {
+            fields.push('due_date = ?');
+            values.push(due_date);
+        }
+        if (user_id) {
+            fields.push('user_id = ?');
+            values.push(user_id);
+        }
+        values.push(taskId);
+
+        const query = `UPDATE tasks SET ${fields.join(', ')} WHERE id = ?`;
+        pool.query(query, values, (err, results) => {
+            if (err) {
+                return res.status(500).json({ error: err.message });
+            }
+            if (results.affectedRows === 0) {
+                return res.status(404).json({ error: 'Task not found' });
+            }
+            res.status(200).json({ message: 'Task updated successfully' });
+        });
     });
 });
 

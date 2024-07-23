@@ -51,41 +51,42 @@
 
 </nav>
 
-<div style="display: flex; flex-direction: column;gap:10px">
-<%= form_tag update_edit_path(params[:id]), method: :put do %>
-  <div class="input-group input-group-sm mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-sm">Name</span>
-      <%= text_field_tag 'name', @tarefa["name"], class: 'form-control' %>
+<div style="display: flex; flex-direction: column; gap: 10px">
+  <%= form_with url: update_edit_path(@tarefa["id"]), local: true do |form| %>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :name %></span>
+        <%= form.text_field :name %>
+      </div>
     </div>
-  </div>
 
-  <div class="input-group input-group-sm mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-sm">Description</span>
-      <%= text_area_tag 'description', @tarefa["description"], class: 'form-control' %>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :description %></span>
+        <%= form.text_area :description %>
+      </div>
     </div>
-  </div>
 
-  <div class="input-group input-group-sm mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-sm">Priority</span>
-      <%= select_tag 'priority', options_for_select(['low', 'medium', 'high'], @tarefa["priority"]), class: 'form-control' %>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :priority %></span>
+        <%= form.select :priority, options_for_select(['low', 'medium', 'high']) %>
+      </div>
     </div>
-  </div>
 
-  <div class="input-group input-group-sm mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-sm">Is Ended</span>
-      <%= select_tag 'isEnded', options_for_select(['false', 'true'], @tarefa["isEnded"]), class: 'form-control' %>
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :isEnded %></span>
+        <%= form.select :isEnded, options_for_select(['false', 'true']) %>
+      </div>
     </div>
-  </div>
 
-  <div>
-    <%= submit_tag "Edit", class: "btn btn-primary", style: "width: 10rem;" %>
-  </div>
-<% end %>
+    <div>
+      <%= form.submit "Edit", class: "btn btn-primary", style: "width: 10rem;" %>
+    </div>
+  <% end %>
 
-<%= form_tag destroy_edit_path(params[:id]), method: :delete, data: { confirm: 'Are you sure?' } do %>
-  <%= submit_tag 'Delete', class: 'btn btn-danger', style: "width: 10rem;" %>
-<% end %>
+  <%= form_with(url: destroy_edit_path(@tarefa["id"]), method: :delete, data: { confirm: 'Are you sure?' }) do |form| %>
+    <%= form.submit 'Excluir', class: 'btn btn-danger', style: "width: 10rem;" %>
+  <% end %>
+</div>
