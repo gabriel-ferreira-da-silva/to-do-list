@@ -1,38 +1,55 @@
+require 'httparty'
+
 class EditController < ApplicationController
   before_action :require_login
   def edit
-    @tarefa = Tarefa.find([params[:id]])
-  end
-
-  def update
-    @tarefa = Tarefa.find(params[:id])
-    if @tarefa.update(tarefa_params)
-      redirect_to home_path, notice: 'Task was successfully updated.'
+    response = NodeTaskService.get_task(params[:id])
+    if response.success?
+      @tarefa = JSON.parse(response.body)[0]
     else
-      render :new
+      redirect_to home_path, notice: 'Task was successfully updated.'
     end
   end
 
-  def updatedatetime
-    @tarefa = Tarefa.find(params[:id])
-    @tarefa.update(data: Time.now)
-    @tarefa.update(finalizada: "true")
-    redirect_to home_path, notice: 'Datetime updated successfully.'
+  def update
+    task_params = {
+      name: params[:tarefa][:name],
+      description: params[:tarefa][:description],
+      priority: params[:tarefa][:priority],
+      isEnded: params[:tarefa][:isEnded]
+    }
+
+    response = NodeTaskService.update_task(params[:id], task_params)
+
+    if response.success?
+      redirect_to home_path, notice: 'Task was successfully updated.'
+    else
+      flash.now[:alert] = 'Failed to update task. Please try again.'
+      render :edit
+    end
   end
 
   def destroy
-    @tarefa = Tarefa.find(params[:id])
-    @tarefa.destroy
-    respond_to do |format|
-      format.html { redirect_to home_path, notice: 'Tarefa was successfully deleted.' }
-      format.json { head :no_content }
+    response = NodeTaskService.delete_task(params[:id])
+
+    if response.success?
+      redirect_to home_path, notice: 'Task was successfully deleted.'
+    else
+      flash.now[:alert] = 'Failed to delete task. Please try again.'
+      redirect_to home_path
     end
   end
 
   private
 
   def tarefa_params
-    params.require(:tarefa).permit(:nome, :descricao, :finalizada, :prioridade,:membro)
+    params.require(:tarefa).permit(:name, :description, :isEnded, :priority,:membro)
+  end
+
+  def require_login
+    unless session[:user_id]
+      redirect_to login_path, alert: 'You must be logged in to access this page.'
+    end
   end
 
 end

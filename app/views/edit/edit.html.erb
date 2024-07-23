@@ -52,45 +52,40 @@
 </nav>
 
 <div style="display: flex; flex-direction: column;gap:10px">
-<%= form_with model: @tarefa,url: update_edit_path(@tarefa), local: true do |form| %>
-  
+<%= form_tag update_edit_path(params[:id]), method: :put do %>
   <div class="input-group input-group-sm mb-3">
     <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :nome %></span>
-        <%= form.text_field :nome %>
+      <span class="input-group-text" id="inputGroup-sizing-sm">Name</span>
+      <%= text_field_tag 'name', @tarefa["name"], class: 'form-control' %>
     </div>
   </div>
 
   <div class="input-group input-group-sm mb-3">
     <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :descricao %></span>
-        <%= form.text_area :descricao %>
+      <span class="input-group-text" id="inputGroup-sizing-sm">Description</span>
+      <%= text_area_tag 'description', @tarefa["description"], class: 'form-control' %>
     </div>
   </div>
 
   <div class="input-group input-group-sm mb-3">
     <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :prioridade %></span>
-        <%= form.select :prioridade, options_for_select(['baixa', 'media', 'alta']) %>
+      <span class="input-group-text" id="inputGroup-sizing-sm">Priority</span>
+      <%= select_tag 'priority', options_for_select(['low', 'medium', 'high'], @tarefa["priority"]), class: 'form-control' %>
     </div>
   </div>
-  
+
   <div class="input-group input-group-sm mb-3">
     <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm"><%= form.label :finalizada %></span>
-        <%= form.select :finalizada, options_for_select(['false', 'true']) %>
+      <span class="input-group-text" id="inputGroup-sizing-sm">Is Ended</span>
+      <%= select_tag 'isEnded', options_for_select(['false', 'true'], @tarefa["isEnded"]), class: 'form-control' %>
     </div>
   </div>
-  
-  <div >
-  <%= form.submit "edit", class: "btn btn-primary", style: "width: 10rem;"%>
+
+  <div>
+    <%= submit_tag "Edit", class: "btn btn-primary", style: "width: 10rem;" %>
   </div>
 <% end %>
 
-<%= form_with(model: @tarefa, url: destroy_edit_path(@tarefa), method: :delete, data: { confirm: 'Are you sure?' }) do |form| %>
-<%= form.submit 'Excluir', class: 'btn btn-danger' , style: "width: 10rem;"%>
+<%= form_tag destroy_edit_path(params[:id]), method: :delete, data: { confirm: 'Are you sure?' } do %>
+  <%= submit_tag 'Delete', class: 'btn btn-danger', style: "width: 10rem;" %>
 <% end %>
-
-</div>
-
-

@@ -88,6 +88,22 @@ app.get('/tasks/byuser/:userid', (req, res) => {
 });
 
 
+
+app.get('/tasks/:id', (req, res) => {
+    const id = req.params.id;
+    const query = 'SELECT * FROM tasks WHERE id = ?';
+    console.log("tasks get  request made :", id, typeof(id))
+    pool.query(query,[id],(err, results) => {
+        if (err) {
+            console.log("tasks byuser request error:", id, typeof(id))  
+            return res.status(500).json({ error: err.message });
+        }
+        console.log("tasks byuser request has sucessef :", id, typeof(id))
+        res.status(200).json(results);
+    });
+});
+
+
 app.get('/users/:userid', (req, res) => {
     const userId = req.params.userid;
     const query = 'SELECT * FROM users WHERE id = ?';
